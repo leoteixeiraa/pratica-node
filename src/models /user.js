@@ -14,7 +14,12 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        select: false, //quando eu fazer uma consulta no banco
-    }
-
+        select: false, //quando for feita uma consulta no banco, não retornar o valor da senha
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
 });
+
+const User = mongoose.model('User', UserSchema);
